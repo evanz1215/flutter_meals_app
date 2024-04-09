@@ -7,9 +7,12 @@ class MealItem extends StatelessWidget {
   const MealItem({
     super.key,
     required this.meal,
+    required this.onSelectMeal,
   });
 
   final Meal meal;
+
+  final void Function(Meal meal) onSelectMeal;
 
   String get complexityText {
     return meal.complexity.name[0].toUpperCase() + meal.complexity.name.substring(1);
@@ -29,7 +32,9 @@ class MealItem extends StatelessWidget {
       clipBehavior: Clip.hardEdge, //圓角沒有生效，因為InkWell蓋在上方，所以要加上這個overflow
       elevation: 2,
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          onSelectMeal(meal);
+        },
         child: Stack(
           children: [
             FadeInImage(
