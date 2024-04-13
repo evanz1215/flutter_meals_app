@@ -69,8 +69,6 @@ class _TabsScreenState extends State<TabsScreen> {
         ),
       );
 
-      print(result);
-
       setState(() {
         _selectedFilters = result ?? kInitialFilters;
       });
