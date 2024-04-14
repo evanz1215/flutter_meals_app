@@ -55,11 +55,14 @@ class MealDetailsScreen extends ConsumerWidget {
           child: Column(
             // 超出屏幕的内容会被滚动，可以使用SingleChildScrollView替代或者使用ListView
             children: [
-              Image.network(
-                meal.imageUrl,
-                height: 300,
-                width: double.infinity,
-                fit: BoxFit.cover,
+              Hero(
+                tag: meal.id,
+                child: Image.network(
+                  meal.imageUrl,
+                  height: 300,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
               ),
               const SizedBox(
                 height: 14,
